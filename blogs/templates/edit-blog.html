@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<head>
+	<title>修改博客</title>
+</head>
+<body>
+<form method="post">
+	<h1>
+		{{ blog.title }}
+	</h1>
+	<textarea name="text">{{ blog.text }}</textarea>
+	{% csrf_token %}
+        <br>
+	<input type="submit" value="提交">
+</form>
+{% endblock content %}

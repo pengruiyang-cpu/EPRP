@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<head>
+        <title>
+		{{ errormsg }}
+        </title>
+</head>
+<body>
+	<br><br>
+        {{ errormsg }}
+        <br><br>
+        <a href="javascript: history.go(-1)">返回上一个页面</a>
+</body>
+{% endblock content %}

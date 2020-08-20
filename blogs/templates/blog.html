@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<head>
+	<title>{{ blog.title }}</title>
+</head>
+<body>
+	<h1>
+		{{ blog.title }}
+	</h1>
+	<h4>{{ blog.owner }}</h4>
+	<a href="{% url 'blogs:edit-blog' blog.id %}">修改</a>
+	<a href="{% url 'blogs:delete-blog' blog.id %}">删除</a>
+	<br/><br/>
+	{{ blog.date | date:"Y-m-d H:i:s"}}
+	<br/><br/>
+	{{ blog.text | linebreaks }}
+	<br/><br/>
+{% endblock content %}

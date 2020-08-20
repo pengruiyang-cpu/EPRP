@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<head>
+<title>博客</title>
+</head>
+<body>
+	<h1>所有博客</h1>
+	<h3><a href="{% url 'blogs:new-blog'  %}">写博客</a></h3>
+	<br/>
+	<!--all blogs-->
+	{% for blog in blogs %}
+	<h3><a href="{% url 'blogs:blog' blog.id %}">{{ blog.title }}</h3></a>
+	<br/>
+	{{ blog.date | date:"Y-m-d H:i:s"}}
+        <!--owner-->
+	<br/><br>
+        <a href="{% url 'users:user' blog.owner %}">{{ blog.owner }}</a>
+	<br /><br/>
+	{{ blog | linebreaks}}
+	<br/><br/>
+       {% empty %}
+	       emm...竟然一篇博客也没有
+	{% endfor %}
+</body>
+{% endblock content %}

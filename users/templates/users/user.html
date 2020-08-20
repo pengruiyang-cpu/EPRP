@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<head>
+	<title>{{ user.username }}</title>
+</head>
+<body>
+	<h1>{{ user.username }}</h1>
+	<h4>TA的博客</h4>
+	{% for blog in blogs %}
+	        <h3><a href="{% url 'blogs:blog' blog.id %}">{{ blog.title }}</h3></a>
+		<br/>
+		{{ blog.date | date:"Y-m-d H:i:s"}}
+                <!--owner-->
+                <br/><br>
+                <a href="{% url 'users:user' blog.owner %}">{{ blog.owner }}</a>
+		<br/><br/>
+               {{ blog | linebreaks}}
+		<br/><br/>
+	{% empty %}
+		<p>你已经看到我的底线啦! </p>
+	{% endfor %}
+</body>
+{% endblock content %}

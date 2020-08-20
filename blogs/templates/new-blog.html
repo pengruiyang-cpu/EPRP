@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<head>
+	<title>写博客</title>
+</head>
+<body>
+	<form method="post">
+		<input type="text" name="title">
+		<br/><br/>
+		<textarea name="text"></textarea>
+		{% csrf_token %}
+		<input type="submit" value="提交">
+	</form>
+</body>
+{% endblock content %}
